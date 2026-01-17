@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="root"></div>
+
+<script>
+let count =0;
+const root = document.getElementById("root");
+
+const app = document.createElement("div");
+app.className= "app";
+
+const title= document.createElement("h2");
+title.innerText= "Counter App using JS";
+
+const counterBox = document.createElement("div");
+counterBox.className = "counter-box";
+
+const countText = document.createElement("span");
+countText.innerText=count;
+
+counterBox.appendChild(countText);
+
+const buttons = document.createElement("div");
+buttons.className = "buttons";
+
+const incBtn = document.createElement("button");
+incBtn.innerText = "+";
+incBtn.onclick = () => {
+    count++;
+    countText.innerText = count;
+};
+
+const resetBtn = document.createElement("button");
+resetBtn.innerText = "Reset";
+resetBtn.onclick = () => {
+    count = 0;
+    countText.innerText = count;
+};
+
+const decBtn = document.createElement("button");
+decBtn.innerText = "-";
+decBtn.onclick = () => {
+    count--;
+    countText.innerText = count;
+};
+
+buttons.appendChild(decBtn);
+buttons.appendChild(resetBtn);
+buttons.appendChild(incBtn);
+
+// build app
+app.appendChild(title);
+app.appendChild(counterBox);
+app.appendChild(buttons);
+root.appendChild(app);
+</script>
+</body>
+</html>
